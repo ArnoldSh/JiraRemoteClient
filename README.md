@@ -1,10 +1,8 @@
-  ## JiraRemoteClient
-  Atlassian Jira Remote Client (SOAP/REST implementation)
-  Provides full functionality of RPC plugins.
-  ## Example code
-  Below places example of SSL auth method:
+# JiraRemoteClient
+  Atlassian Jira Remote Client (SOAP/REST implementation). Provides full functionality of RPC plugins.
+# Example code
+  This is example of SSL auth method:
 ```java
-
 import org.radixware.jiraclient.implementation.common.JiraClientFactory;
 import org.radixware.jiraclient.wrap.Issue;
 import org.radixware.jiraclient.wrap.JiraClient;
@@ -48,6 +46,7 @@ public class main {
 		JiraClient jiraClient =
 				JiraClientFactory.createWithSSLContext(new URL("https://jira.mycompany.ru:443"), sslContext);
 
+
 		String jql = "assignee = ashamsutdinov";
 
 		Iterable<Issue> issues = jiraClient.getIssuesByFilterQuery(jql, 200);
@@ -58,7 +57,7 @@ public class main {
 
 			Issue issue = itr.next();
 
-			// do something with issue info
+			// do something with issue data
 			// ...
 
 		}
