@@ -1,0 +1,9 @@
+org.radixware.jiraclient.exception
+org.radixware.jiraclient.implementation.common
+org.radixware.jiraclient.implementation.common.input
+org.radixware.jiraclient.implementation.rest
+org.radixware.jiraclient.implementation.rest.ssl
+org.radixware.jiraclient.implementation.soap
+org.radixware.jiraclient.implementation.soap.ssl
+org.radixware.jiraclient.wrap
+org.radixware.jiraclient.wrap.input

@@ -1,0 +1,42 @@
+<project>
+
+    <property name="project.name"     value="JiraClient"/>
+
+    <property name="src.dir"            value="src/main/java"/>
+    <property name="lib.dir"            value="lib"/>
+    <property name="build.dir"          value="build"/>
+    <property name="out.dir"          	value="out"/>
+    <property name="dist.dir"           value="dist"/>
+    <property name="dist.lib.dir"       value="${dist.dir}/lib"/>
+    <property name="dist.javadoc.dir"   value="${dist.dir}/javadoc"/>
+    <property name="classes.dir"        value="${build.dir}/classes"/>
+
+    <path id="classpath">
+        <fileset dir="${dist.lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <target name="clean" description="Delete build directory">
+        <delete dir="${build.dir}"/>
+        <delete dir="${out.dir}"/>
+    </target>
+
+    <target name="compile" description="Compile Java-classes">
+        <mkdir dir="${classes.dir}"/>
+        <javac 	srcdir="${src.dir}"
+        		destdir="${classes.dir}"
+        		classpathref="classpath"
+        		target="1.7"
+        		source="1.7"/>
+    </target>
+
+    <target name="jar" depends="compile" description="Build library">
+        <jar destfile="${dist.dir}/${project.name}.jar" basedir="${classes.dir}"/>
+    </target>
+
+    <target name="javadoc" description="Generate documentation">
+        <javadoc sourcepath="${src.dir}" destdir="${dist.javadoc.dir}"/>
+    </target>
+
+	<target name="build" depends="jar, javadoc, clean" description="Build JAR and javadocs, delete out classes"/>
+
+</project>
