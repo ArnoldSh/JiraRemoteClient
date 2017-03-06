@@ -1,5 +1,15 @@
 # JiraRemoteClient
   Atlassian Jira Remote Client (SOAP/REST implementation). Provides full functionality of RPC plugins.
+# Build
+	Project allow to build itself with using Maven or Gradle.
+	Maven command:
+```ssh
+	mvn package
+```
+	Gradle command:
+```ssh
+	gradle build
+```
 # Example code
   This is example of SSL auth method:
 ```java
