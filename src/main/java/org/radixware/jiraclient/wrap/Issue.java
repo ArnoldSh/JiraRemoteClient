@@ -44,4 +44,7 @@ public interface Issue {
 	Iterable<Version> getAffectsVersions();
 
 	Iterable<Version> getFixVersions();
+	
+	Iterable<Component> getComponents();
+	
 }

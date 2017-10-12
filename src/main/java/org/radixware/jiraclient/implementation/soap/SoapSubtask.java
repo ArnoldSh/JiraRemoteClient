@@ -13,15 +13,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-import org.radixware.jiraclient.wrap.IssueType;
-import org.radixware.jiraclient.wrap.ParentIssue;
-import org.radixware.jiraclient.wrap.Priority;
-import org.radixware.jiraclient.wrap.Project;
-import org.radixware.jiraclient.wrap.Resolution;
-import org.radixware.jiraclient.wrap.Status;
-import org.radixware.jiraclient.wrap.Subtask;
-import org.radixware.jiraclient.wrap.User;
-import org.radixware.jiraclient.wrap.Version;
+
+import org.radixware.jiraclient.wrap.*;
 
 /**
  *
@@ -182,5 +175,10 @@ public class SoapSubtask extends SoapClientContainer implements Subtask {
 
 	RemoteIssue getUnwrappedIssue() {
 		return issue;
+	}
+	
+	@Override
+	public Iterable<Component> getComponents() {
+		return this.parentIssue.getComponents();
 	}
 }

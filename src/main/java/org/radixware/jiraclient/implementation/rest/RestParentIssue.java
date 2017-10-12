@@ -4,6 +4,7 @@
  */
 package org.radixware.jiraclient.implementation.rest;
 
+import com.atlassian.jira.rest.client.domain.BasicComponent;
 import com.atlassian.jira.rest.client.domain.Issue;
 
 import java.net.URI;
@@ -163,5 +164,14 @@ public class RestParentIssue extends RestClientContainer implements ParentIssue 
 			outList.add(new RestSubtask(s, this, getOwner()));
 		}
 		return Collections.unmodifiableList(outList);
+	}
+	
+	@Override
+	public Iterable<Component> getComponents() {
+		List<Component> components = new ArrayList<>();
+		for(BasicComponent component : this.issue.getComponents()) {
+			components.add( new RestComponent( component ) );
+		}
+		return Collections.unmodifiableList( components );
 	}
 }
