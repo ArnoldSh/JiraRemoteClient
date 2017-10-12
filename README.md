@@ -17,18 +17,6 @@ gradle build
 # Example code
   This is example of SSL auth method:
 ```java
-import org.radixware.jiraclient.implementation.common.JiraClientFactory;
-import org.radixware.jiraclient.wrap.Issue;
-import org.radixware.jiraclient.wrap.JiraClient;
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-import java.io.FileInputStream;
-import java.net.URL;
-import java.security.KeyStore;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
 public class main {
 	public static void main(String[] args) throws Exception {
 
@@ -47,7 +35,6 @@ public class main {
 			keyStore.load(fs, password);
 		} finally {
 			fs.close();
-			keyStore.load(null, password);
 		}
 
 		KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance("SunX509");
